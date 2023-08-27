@@ -14,8 +14,14 @@ class ClientController extends Controller
     {
         # select all clients
         $clients = Client::all();
-        # return all clients, in format json
-        return response()->json(["clients" => $clients], 200);
+
+        # modifie message json
+        $data = [
+            'message' => 'Client Consulted SuccessFully',
+            'List Clients Consulted' =>$clients
+        ];
+        # return json
+        return response()->json($data, 201);
     }
 
     /**
@@ -43,10 +49,11 @@ class ClientController extends Controller
         # select * from client
         $clients = Client::all();
 
+
         # modifie message json
         $data = [
             'message' => 'Client Created SuccessFully',
-            'List CLients Created' =>$clients
+            'List Clients Created' =>$clients
         ];
         # return json
         return response()->json($data, 201);
@@ -82,19 +89,13 @@ class ClientController extends Controller
 
         # select id, to update
         Client::find($id)->update($update_client);
-        $inject = Customer::find($id);
+        $inject = Client::find($id);
             
         # select * from client
         $clients = Client::all();
 
-        # modifie message json
-        $data = [
-            'message' => 'Client Update SuccessFully',
-            'List CLients Update' =>$clients
-        ];
-        
-        # return json
-        return response()->json($data, 201);
+        return response()->json(["clients" => $clients], 200);
+       
     }
 
     /**

@@ -27,5 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('/clients')->group(function () {
     Route::get('/',[ ClientController::class, 'index']);
     Route::post('/',[ ClientController::class, 'store']);
+    Route::get('/{id}',[ ClientController::class, 'show']);
+    Route::put('/{id}',[ ClientController::class, 'update']);
 });
 
