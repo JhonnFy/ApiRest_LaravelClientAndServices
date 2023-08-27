@@ -26,5 +26,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 #Route::(PostMan) http://127.0.0.1:8000/api/clients/
 Route::prefix('/clients')->group(function () {
     Route::get('/',[ ClientController::class, 'index']);
+    Route::post('/',[ ClientController::class, 'store']);
 });
 

@@ -9,6 +9,14 @@ class Client extends Model
 {
     use HasFactory;
 
+        #AtributesTable
+        protected $fillable = [
+            'name',
+            'email',
+            'phone',
+            'address'
+        ];
+
 
     public function services(): BelongsToMany
     {

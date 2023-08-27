@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
 use Illuminate\Http\Request;
+use App\Models\Client;
 
 class ClientController extends Controller
 {
@@ -31,7 +31,20 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        #Array select colum from model
+        $new_client = [
+            'name'=> $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address
+        ];
+        #Insert
+        $clients = Client::create($new_client);
+        #Json
+        #return response()->json($customer, 201);
+        $clients = Client::all();
+        return response()->json(["clients" => $clients], 200);
+
     }
 
     /**
