@@ -11,7 +11,28 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        
+
+        // Clients
+        Schema::create('clients', function (Blueprint $table) {
+            $table->bigIncrements('id');
+
+            $table->timestamps();
+
+        });
+
+        Schema::create('services', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            
+            $table->timestamps();
+        });
+
+
+        // Pivot
+        Schema::create('clients_services', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +40,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('clients');
+        Schema::dropIfExists('services');
+        Schema::dropIfExists('clients_services');
     }
 };

@@ -10,3 +10,12 @@
 3:create migration:
     +php artisan make:migration app_table
 
+4:create migration pivot:
+    +php artisan make:migration create_clients_services_table
+
+5:union migration in app_table:
+    +migration (clients & services & clients_services)
+    +delete other migration(point four)
+
+    
+
