@@ -31,3 +31,11 @@ public function roles(): BelongsToMany
     }
 
 8:create method, in controller Clientcontroller
+
+9:insert client, in gestor sql:
+    +SET IDENTITY_INSERT clients ON
+    +INSERT INTO clients (id, name, email, phone, address, created_at, updated_at) VALUES
+    +('10','Cliente1','moesdeveloper1023@gmail.com','3101112223','av siempre viva','','');
+
+10: create route api:
+    http://127.0.0.1:8000/api/clients/

@@ -15,7 +15,7 @@ class ClientController extends Controller
         # select all clients
         $clients = Client::all();
         # return all clients, in format json
-        return response()->json(["orders" => $orders], 200);
+        return response()->json(["clients" => $clients], 200);
     }
 
     /**
