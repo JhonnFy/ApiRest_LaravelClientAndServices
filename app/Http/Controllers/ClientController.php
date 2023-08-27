@@ -31,21 +31,28 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        #Array select colum from model
+        # array select colum from model
         $new_client = [
             'name'=> $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address
         ];
-        #Insert
+        # insert
         $clients = Client::create($new_client);
-        #Json
-        #return response()->json($customer, 201);
+        # select * from client
         $clients = Client::all();
-        return response()->json(["clients" => $clients], 200);
+
+        # modifie message json
+        $data = [
+            'message' => 'Client Created SuccessFully',
+            'List CLients' =>$clients
+        ];
+        # return json
+        return response()->json($data, 201);
 
     }
+
 
     /**
      * Display the specified resource.
