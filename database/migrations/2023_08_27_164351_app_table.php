@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         
-
         # clients
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
