@@ -1,0 +1,12 @@
+1: connect database
+    Files:
+        +database.php
+        +env
+
+2: create model and controller:
+    +php artisan make:model Client -cr
+    +php artisan make:model Service -cr
+
+3:create migration:
+    +php artisan make:migration app_table
+
