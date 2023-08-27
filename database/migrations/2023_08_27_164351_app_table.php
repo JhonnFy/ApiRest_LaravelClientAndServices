@@ -6,38 +6,45 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    /*
+    * Run the migrations.
+    */
     public function up(): void
     {
         
 
-        // Clients
+        # clients
         Schema::create('clients', function (Blueprint $table) {
-            $table->bigIncrements('id');
-
+            $table->increments('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+     
             $table->timestamps();
-
         });
 
+        # services
         Schema::create('services', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            
+            $table->increments('id');
+            $table->string('name');
+            $table->string('description')->nullable;
+            $table->float('price');
+        
             $table->timestamps();
         });
 
 
-        // Pivot
+        # pivot
         Schema::create('clients_services', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+    /*
+    * Reverse the migrations.
+    */
     public function down(): void
     {
         Schema::dropIfExists('clients');

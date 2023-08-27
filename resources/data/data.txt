@@ -17,5 +17,8 @@
     +migration (clients & services & clients_services)
     +delete other migration(point four)
 
-    
+6:create table:
+    +clients
+    +services
+    +clients_services
 
