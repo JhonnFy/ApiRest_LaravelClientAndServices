@@ -22,3 +22,11 @@
     +services
     +clients_services
 
+7:foreign key constraints
+
+8:BelongsToMany(model client and inverse service)
+public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
