@@ -40,18 +40,15 @@ return new class extends Migration
             $table->increments('id');
             
             # fk_client
-            $table->unsignedBigInteger('client_id');
+            $table->unsignedInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients');
         
             # fk_services
-            $table->unsignedBigInteger('service_id');
+            $table->unsignedInteger('service_id');
             $table->foreign('service_id')->references('id')->on('services');
 
             $table->timestamps();
         });
-        
-
-
 
     }
 
