@@ -30,7 +30,7 @@ public function roles(): BelongsToMany
         return $this->belongsToMany(Role::class);
     }
 
-8:create method, in controller Clientcontroller
+8:create method 'store', in controller Clientcontroller 
 
 9:insert client, in gestor sql:
     +SET IDENTITY_INSERT clients ON
@@ -39,3 +39,7 @@ public function roles(): BelongsToMany
 
 10: create route api:
     http://127.0.0.1:8000/api/clients/
+
+
+11: create method 'update', in controller Clientcontroller
+
