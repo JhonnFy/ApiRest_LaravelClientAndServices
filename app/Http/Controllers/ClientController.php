@@ -46,7 +46,7 @@ class ClientController extends Controller
         # modifie message json
         $data = [
             'message' => 'Client Created SuccessFully',
-            'List CLients' =>$clients
+            'List CLients Created' =>$clients
         ];
         # return json
         return response()->json($data, 201);
@@ -75,7 +75,26 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        //
+        $update_client['name'] = $request['name'];
+        $update_client['email'] = $request['email'];
+        $update_client['phone'] = $request['phone'];
+        $update_client['address'] = $request['address'];
+
+        # select id, to update
+        Client::find($id)->update($update_client);
+        $inject = Customer::find($id);
+            
+        # select * from client
+        $clients = Client::all();
+
+        # modifie message json
+        $data = [
+            'message' => 'Client Update SuccessFully',
+            'List CLients Update' =>$clients
+        ];
+        
+        # return json
+        return response()->json($data, 201);
     }
 
     /**
