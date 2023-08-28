@@ -9,6 +9,13 @@ class Service extends Model
 {
     use HasFactory;
 
+        #AtributesTable
+        protected $fillable = [
+            'name',
+            'description',
+            'price'
+        ];
+
     public function clients(): BelongsToMany
     {
         return $this->belongsToMany(Client::class);

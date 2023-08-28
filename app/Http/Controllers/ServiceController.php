@@ -12,7 +12,17 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //-------
+        # select all clients
+        $services = Service::all();
+
+        # modifie message json
+        $index_services = [
+            'message' => 'Service Consulted SuccessFully',
+            'List Services' =>$services
+        ];
+        
+        # return json
+        return response()->json($index_services, 201);
     }
 
     /**
@@ -28,7 +38,24 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        # array select colum from model
+        $new_service = [
+            'name'=> $request->name,
+            'description' => $request->description,
+            'price' => $request->price
+        ];
+        # insert
+        $services = Service::create($new_service);
+        # select * from client
+        $services = Service::all();
+
+        # modifie message json
+        $data = [
+            'message' => 'Client Created SuccessFully',
+            'List Clients' =>$services
+        ];
+        # return json
+        return response()->json($data, 201);
     }
 
     /**

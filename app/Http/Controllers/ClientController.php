@@ -16,12 +16,12 @@ class ClientController extends Controller
         $clients = Client::all();
 
         # modifie message json
-        $data = [
+        $index_clients = [
             'message' => 'Client Consulted SuccessFully',
             'List Clients' =>$clients
         ];
         # return json
-        return response()->json($data, 201);
+        return response()->json($index_clients, 201);
     }
 
 
