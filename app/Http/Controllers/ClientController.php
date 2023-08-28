@@ -54,7 +54,7 @@ class ClientController extends Controller
         # modifie message json
         $data = [
             'message' => 'Client Created SuccessFully',
-            'List Clients Created' =>$clients
+            'List Clients' =>$clients
         ];
         # return json
         return response()->json($data, 201);
@@ -110,7 +110,7 @@ class ClientController extends Controller
         # modifie message json
         $data = [
             'message' => 'Client Update Success',
-            'List Clients Update' =>$clients
+            'List Clients' =>$clients
         ];
         # return json
         return response()->json($data, 201);
@@ -135,5 +135,5 @@ class ClientController extends Controller
         return response()->json($data, 201);
     }
 
-    
+
 }
