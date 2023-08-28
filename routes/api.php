@@ -39,3 +39,9 @@ Route::prefix('/services')->group(function () {
     Route::put('/{id}',[ServiceController::class,'update']);
     Route::delete('/{id}',[ServiceController::class, 'destroy']);
 });
+
+
+#Route::(PostMan) http://127.0.0.1:8000/api/clients/services/
+Route::prefix('/clients/services')->group(function () {
+    Route::post('/',[ClientController::class, 'attach']);
+});

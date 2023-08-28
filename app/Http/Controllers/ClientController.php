@@ -135,5 +135,17 @@ class ClientController extends Controller
         return response()->json($data, 201);
     }
 
+    # esta funcion recibe una request y un cliente (el client serrvices, crea un servicio, services_id)
+    public function attach(Request $request)
+    {
+        $client = Client::find($request->client_id);
+        $client->services()->attach($request->service_id);
+
+        $data = [
+            'message' => 'Services attached successfuly',
+            'List Clients' =>$client
+        ];
+    }
+
 
 }
