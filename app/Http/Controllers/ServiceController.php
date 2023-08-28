@@ -51,8 +51,8 @@ class ServiceController extends Controller
 
         # modifie message json
         $data = [
-            'message' => 'Client Created SuccessFully',
-            'List Clients' =>$services
+            'message' => 'Service Created SuccessFully',
+            'List Services' =>$services
         ];
         # return json
         return response()->json($data, 201);
@@ -61,9 +61,15 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Service $service)
+    public function show(Service $id)
     {
-        //
+        # modifie message json
+        $data = [
+            'message' => 'Service Consulted SuccessFully',
+            'List Services' =>$id
+        ];
+        # return json
+        return response()->json($data, 201);
     }
 
     /**
@@ -77,16 +83,40 @@ class ServiceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, $id)
     {
-        //
+        $update_client['name'] = $request['name'];
+        $update_client['description'] = $request['description'];
+        $update_client['price'] = $request['price'];
+
+        Service::find($id)->update($update_client);
+        $inject = Service::find($id);
+            
+        $services = Service::all();
+
+        # modifie message json
+        $data = [
+            'message' => 'Service Update Success',
+            'List Services' =>$services
+        ];
+        # return json
+        return response()->json($data, 201);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Service $service)
+    public function destroy($id)
     {
-        //
+        $delete = Service::find($id)->delete();
+        $client = Service::All();
+        
+        # modifie message json
+        $data = [
+            'message' => 'Service Delete Success',
+            'List Services' =>$client
+        ];
+        # return json
+        return response()->json($data, 201);
     }
 }

@@ -71,7 +71,7 @@ class ClientController extends Controller
         # modifie message json
         $data = [
             'message' => 'Client Consulted SuccessFully',
-            'Client Data' =>$id
+            'List Clients' =>$id
         ];
         # return json
         return response()->json($data, 201);
