@@ -24,6 +24,7 @@ class ClientController extends Controller
         return response()->json($data, 201);
     }
 
+
     /**
      * Show the form for creating a new resource.
      */
@@ -31,6 +32,7 @@ class ClientController extends Controller
     {
         //
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -60,23 +62,22 @@ class ClientController extends Controller
     }
 
 
-    /**
-     * Display the specified resource.
-     */
+    /*
+    # select one id
+    */
     public function show(Client $id)
-    {
-        #Select one Id
-        $clients = Client::all();
+    {  
 
         # modifie message json
         $data = [
             'message' => 'Client Consulted SuccessFully',
-            'Client Data' =>$clients
+            'Client Data' =>$id
         ];
         # return json
         return response()->json($data, 201);
 
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -85,6 +86,7 @@ class ClientController extends Controller
     {
         //
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -112,9 +114,8 @@ class ClientController extends Controller
         ];
         # return json
         return response()->json($data, 201);
-    
-       
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -133,4 +134,6 @@ class ClientController extends Controller
         # return json
         return response()->json($data, 201);
     }
+
+    
 }
