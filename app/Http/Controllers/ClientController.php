@@ -80,21 +80,30 @@ class ClientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, $id)
+
+    #Request $request, Client $client
+    #Request $request, $id
     {
+     
         $update_client['name'] = $request['name'];
         $update_client['email'] = $request['email'];
         $update_client['phone'] = $request['phone'];
         $update_client['address'] = $request['address'];
 
-        # select id, to update
         Client::find($id)->update($update_client);
         $inject = Client::find($id);
             
-        # select * from client
         $clients = Client::all();
 
-        return response()->json(["clients" => $clients], 200);
+        # modifie message json
+        $data = [
+            'message' => 'Client Update Success',
+            'List Clients Update' =>$clients
+        ];
+        # return json
+        return response()->json($data, 201);
+    
        
     }
 
