@@ -110,8 +110,18 @@ class ClientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Client $client)
+    public function destroy($id)
     {
-        //
+
+        $delete = Client::find($id)->delete();
+        $client = Client::All();
+        
+        # modifie message json
+        $data = [
+            'message' => 'Client Update Success',
+            'List Clients Update' =>$client
+        ];
+        # return json
+        return response()->json($data, 201);
     }
 }

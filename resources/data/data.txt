@@ -40,9 +40,12 @@ public function roles(): BelongsToMany
 10: create route api:
     http://127.0.0.1:8000/api/clients/
 
-
 11: create method 'update', in controller Clientcontroller
 
 12: create route api:
     http://127.0.0.1:8000/api/clients/
 
+13: create method 'destroy', in controller Clientcontroller
+
+14: create route api:
+    http://127.0.0.1:8000/api/clients/
