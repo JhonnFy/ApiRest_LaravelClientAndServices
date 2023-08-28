@@ -18,7 +18,7 @@ class ClientController extends Controller
         # modifie message json
         $data = [
             'message' => 'Client Consulted SuccessFully',
-            'List Clients Consulted' =>$clients
+            'List Clients' =>$clients
         ];
         # return json
         return response()->json($data, 201);
@@ -49,7 +49,6 @@ class ClientController extends Controller
         # select * from client
         $clients = Client::all();
 
-
         # modifie message json
         $data = [
             'message' => 'Client Created SuccessFully',
@@ -64,9 +63,19 @@ class ClientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Client $client)
+    public function show(Client $id)
     {
-        //
+        #Select one Id
+        $clients = Client::all();
+
+        # modifie message json
+        $data = [
+            'message' => 'Client Consulted SuccessFully',
+            'Client Data' =>$clients
+        ];
+        # return json
+        return response()->json($data, 201);
+
     }
 
     /**
@@ -118,8 +127,8 @@ class ClientController extends Controller
         
         # modifie message json
         $data = [
-            'message' => 'Client Update Success',
-            'List Clients Update' =>$client
+            'message' => 'Client Delete Success',
+            'List Clients' =>$client
         ];
         # return json
         return response()->json($data, 201);
