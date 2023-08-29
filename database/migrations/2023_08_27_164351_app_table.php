@@ -35,7 +35,7 @@ return new class extends Migration
 
 
         # pivot
-        Schema::create('clients_services', function (Blueprint $table) {
+        Schema::create('client_service', function (Blueprint $table) {
             $table->increments('id');
             
             # fk_client
@@ -56,8 +56,9 @@ return new class extends Migration
     */
     public function down(): void
     {
+        Schema::dropIfExists('client_service');
         Schema::dropIfExists('clients');
         Schema::dropIfExists('services');
-        Schema::dropIfExists('clients_services');
+        
     }
 };

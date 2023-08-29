@@ -40,14 +40,14 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         # array select colum from model
-        $new_client = [
+        $data = [
             'name'=> $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address
         ];
         # insert
-        $clients = Client::create($new_client);
+        $new_client = Client::create($data);
         # select * from client
         $clients = Client::all();
 
