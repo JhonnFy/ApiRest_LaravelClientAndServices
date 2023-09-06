@@ -53,8 +53,8 @@ class ClientController extends Controller
 
         # modifie message json
         $data = [
-            'message' => 'Client Created SuccessFully',
-            '-Data Clients' =>$data,
+            'Congratulation' => 'Client Created SuccessFully',
+            '-Data New Client' =>$data,
             '-List Clients' =>$clients
         ];
         # return json
