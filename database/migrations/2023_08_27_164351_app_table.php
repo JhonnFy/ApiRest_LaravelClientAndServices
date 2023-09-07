@@ -41,7 +41,7 @@ return new class extends Migration
             # fk_client
             $table->unsignedInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients');
-        
+
             # fk_services
             $table->unsignedInteger('service_id');
             $table->foreign('service_id')->references('id')->on('services');
