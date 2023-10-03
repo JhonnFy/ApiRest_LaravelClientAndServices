@@ -147,6 +147,4 @@ class ClientController extends Controller
             'List Clients' =>$client
         ];
     }
-
-
 }
