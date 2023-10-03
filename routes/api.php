@@ -21,7 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
 #Route::(PostMan) http://127.0.0.1:8000/api/clients/
 Route::prefix('/clients')->group(function () {
     Route::get('/',[ClientController::class, 'index']);
@@ -45,3 +44,4 @@ Route::prefix('/services')->group(function () {
 Route::prefix('/clients/services')->group(function () {
     Route::post('/',[ClientController::class, 'attach']);
 });
+
