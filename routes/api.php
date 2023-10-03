@@ -42,6 +42,10 @@ Route::prefix('/services')->group(function () {
 
 #Route::(PostMan) http://127.0.0.1:8000/api/clients/services/
 Route::prefix('/clients/services')->group(function () {
-    Route::post('/',[ClientController::class, 'attach']);
+Route::post('/',[ClientController::class, 'attach']);
 });
+
+
+// http://127.0.0.1:8000/api/getclients
+Route::get('/getclients',[ClientController::class,'showclient']);
 

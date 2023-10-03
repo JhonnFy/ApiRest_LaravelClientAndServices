@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Client;
+use App\Models\Service;
 
 class ClientController extends Controller
 {
@@ -142,11 +143,17 @@ class ClientController extends Controller
         $client = Client::find($request->client_id);
         $client->services()->attach($request->service_id);
 
-        $data1 = [
-            'message' => 'Services attached successfuly',
-            'List Clients' =>$client
-        ];
-        # return json
-        return response()->json($data1, 201);
+        return response()->json($client, 200);
+
     }
+
+    public function showclient(Request $request)
+    {
+        $client = Client::find($request->client_id)->with('services')->get();
+        //$client = 'Client::find($request->client_id)';
+
+        return response()->json($client, 200);
+
+    }
+
 }
